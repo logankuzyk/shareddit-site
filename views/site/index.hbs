@@ -61,6 +61,11 @@
                 </button>
             </form>
             {{{ body }}}
+            {{#if status}}
+            <div class="spinner-border text-primary" role="status">
+              <span class="sr-only">{{ status }}</span>
+            </div>
+            {{/if}}
         </div>
         {{!-- <div class="card-footer">about</div> --}}
     </div>
