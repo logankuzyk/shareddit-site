@@ -8,6 +8,8 @@ var hbs = require("express-handlebars");
 var indexRouter = require("./routes/index");
 
 var app = express();
+var server = require("http").Server(app);
+var io = require("socket.io")(server);
 
 // view engine setup
 app.engine(
@@ -48,4 +50,4 @@ app.use(function (err, req, res, next) {
   });
 });
 
-module.exports = app;
+module.exports = { app: app, server: server };

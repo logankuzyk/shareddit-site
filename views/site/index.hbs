@@ -56,6 +56,8 @@
     console.log(data);
     document.getElementById("image").innerHTML = data;
   });
+
+  socket.emit("request_image", UNIQUE_INDEX);
 </script>
 <html>
   <nav class="navbar navbar-light bg-light">

@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require("../app");
+var app = require("../app").app;
 var debug = require("debug")("shareddit-backend:server");
 var http = require("http");
 
@@ -19,9 +19,8 @@ app.set("port", port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
-const io = require("socket.io")(server);
-app.set("socketio", io);
+var server = require("../app").server;
+var io = require("socket.io")(server);
 
 /**
  * Listen on provided port, on all network interfaces.
