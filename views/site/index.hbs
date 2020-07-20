@@ -53,15 +53,13 @@
   const socket = io();
   socket.on("connect", () => {
     console.log("sending request");
-    socket.emit("request_data", "hello");
+    socket.emit("request_data", window.location.pathname);
   });
 
   socket.on("image", (data) => {
     console.log(data);
     document.getElementById("image").innerHTML = data.html;
   });
-
-  socket.emit("request_image", UNIQUE_INDEX);
 </script>
 <html>
   <nav class="navbar navbar-light bg-light">
@@ -91,13 +89,7 @@
         </button>
       </form>
       {{{ body }}}
-      <div id="image">
-        <div id="spinner">
-          <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">generating image...</span>
-          </div>
-        </div>
-      </div>
+      <div id="image"></div>
     </div>
     {{!--
     <div class="card-footer">about</div>
