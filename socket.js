@@ -18,8 +18,10 @@ io.on("connection", async (socket) => {
       );
       await rp(process.env.BACKEND_URL + data).then((response) => {
         //send image url to client
+        response = JSON.parse(response);
         body = body({ link: response.image });
       });
+      console.log(body);
       io.to(socket.id).emit("image", { html: body });
     }
   });

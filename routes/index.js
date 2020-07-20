@@ -16,7 +16,7 @@ router.get(
   "/r/:sub/comments/:postID/:title?/:commentID?",
   async (req, res, next) => {
     res.render("site/index", {
-      title: "shareddit: generating image",
+      title: "shareddit: generated image",
       info: fs.readFileSync(__dirname + "/../views/site/info.hbs"),
     });
   }
