@@ -17,7 +17,7 @@ router.get(
   async (req, res, next) => {
     res.render("site/index", {
       title: "shareddit: generating image",
-      status: "generating...",
+      info: fs.readFileSync(__dirname + "/../views/site/info.hbs"),
     });
   }
 );
