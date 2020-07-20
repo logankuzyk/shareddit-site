@@ -21,7 +21,6 @@ io.on("connection", async (socket) => {
         response = JSON.parse(response);
         body = body({ link: response.image });
       });
-      console.log(body);
       io.to(socket.id).emit("image", { html: body });
     }
   });
