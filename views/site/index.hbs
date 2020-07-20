@@ -51,10 +51,14 @@
   };
 
   const socket = io();
+  socket.on("connect", () => {
+    console.log("sending request");
+    socket.emit("request_data", "hello");
+  });
 
   socket.on("image", (data) => {
     console.log(data);
-    document.getElementById("image").innerHTML = data;
+    document.getElementById("image").innerHTML = data.html;
   });
 
   socket.emit("request_image", UNIQUE_INDEX);
