@@ -3,9 +3,11 @@ const router = express.Router();
 const fs = require("fs");
 const dotenv = require("dotenv").config();
 const rp = require("request-promise");
+const app = require("../app").app;
 
 /* GET home page. */
-router.get("/", async (req, res, next) => {
+app.get("/", async (req, res, next) => {
+  console.log(app.get("socketio"));
   res.render("site/index", {
     title: "shareddit: share reddit posts with images",
     info: fs.readFileSync(__dirname + "/../views/site/info.hbs"),

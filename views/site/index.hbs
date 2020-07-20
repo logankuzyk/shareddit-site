@@ -60,6 +60,8 @@
     console.log(data);
     document.getElementById("image").innerHTML = data.html;
   });
+
+  socket.emit("request_image", UNIQUE_INDEX);
 </script>
 <html>
   <nav class="navbar navbar-light bg-light">
