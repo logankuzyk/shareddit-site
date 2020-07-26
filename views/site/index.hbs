@@ -51,7 +51,10 @@
   generate = () => {
     let link = document.getElementById("input").value;
     link = new URL(link).pathname;
-    console.log(link);
+    let redact = document.getElementById("redact").checked;
+    if (redact) {
+      link += "redact/";
+    }
     window.location.replace(link);
     return false;
   };
@@ -110,6 +113,13 @@
           title="only reddit links work"
           required
         />
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="redact" />
+          <label class="form-check-label" for="redact"
+            >redact usernames (replace usernames with color blocks to understand
+            conversation)</label
+          >
+        </div>
         <button type="submit" class="btn btn-primary btn-block my-4">
           generate
         </button>
