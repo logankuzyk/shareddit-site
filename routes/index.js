@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get(
-  "/r/:sub/comments/:postID/:title?/:commentID?/:censor?",
+  "/r/:sub/comments/:postID/:title?/:commentID?/redact?",
   async (req, res, next) => {
     res.render("site/index", {
       title: "shareddit: generated image",
