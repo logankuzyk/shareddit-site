@@ -9,7 +9,7 @@ router.get("/", async (req, res, next) => {
   res.render("site/index", {
     title: "shareddit: share reddit posts with images",
     info: fs.readFileSync(__dirname + "/../views/site/info.hbs"),
-    body: fs.readFileSync(__dirname + "/../views/site/landing.hbs"),
+    // body: fs.readFileSync(__dirname + "/../views/site/landing.hbs"),
   });
 });
 
