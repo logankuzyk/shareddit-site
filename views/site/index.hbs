@@ -82,25 +82,24 @@
     if (link != "/") {
       document.getElementById("input").value =
         "www.reddit.com" + window.location.pathname;
-    }
-    if (link.lastIndexOf("/") == link.length - 1) {
-      link = link.substr(0, link.length - 1);
-    }
-    if (link.substring(link.lastIndexOf("/") + 1, link.length) == "redact") {
-      document.getElementById("redact").checked = true;
+      if (link.lastIndexOf("/") == link.length - 1) {
+        link = link.substr(0, link.length - 1);
+      }
+      if (link.substring(link.lastIndexOf("/") + 1, link.length) == "redact") {
+        document.getElementById("redact").checked = true;
+      }
+      const socket = io();
+      socket.on("connect", () => {
+        console.log("sending request");
+        socket.emit("request_data", window.location.pathname);
+      });
+
+      socket.on("image", (data) => {
+        console.log(data);
+        document.getElementById("image").innerHTML = data.html;
+      });
     }
   };
-
-  const socket = io();
-  socket.on("connect", () => {
-    console.log("sending request");
-    socket.emit("request_data", window.location.pathname);
-  });
-
-  socket.on("image", (data) => {
-    console.log(data);
-    document.getElementById("image").innerHTML = data.html;
-  });
 </script>
 <html>
   <nav class="navbar navbar-expand-md navbar-light bg-light">
