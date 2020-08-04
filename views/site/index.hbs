@@ -77,6 +77,20 @@
     return false;
   };
 
+  window.onload = () => {
+    let link = window.location.pathname;
+    if (link != "/") {
+      document.getElementById("input").value =
+        "www.reddit.com" + window.location.pathname;
+    }
+    if (link.lastIndexOf("/") == link.length - 1) {
+      link = link.substr(0, link.length - 1);
+    }
+    if (link.substring(link.lastIndexOf("/") + 1, link.length) == "redact") {
+      document.getElementById("redact").checked = true;
+    }
+  };
+
   const socket = io();
   socket.on("connect", () => {
     console.log("sending request");
