@@ -9,15 +9,40 @@ router.get("/", async (req, res, next) => {
   res.render("site/index", {
     title: "shareddit: share reddit posts with images",
     info: fs.readFileSync(__dirname + "/../views/site/info.hbs"),
+    body: fs.readFileSync(__dirname + "/../views/site/landing.hbs"),
+  });
+});
+
+router.get("/r/:sub/comments/:postID/:title", async (req, res, next) => {
+  res.render("site/index", {
+    title: "shareddit: share reddit posts with images",
+    info: fs.readFileSync(__dirname + "/../views/site/info.hbs"),
+  });
+});
+
+router.get("/r/:sub/comments/:postID/:title/redact", async (req, res, next) => {
+  res.render("site/index", {
+    title: "shareddit: share reddit posts with images",
+    info: fs.readFileSync(__dirname + "/../views/site/info.hbs"),
   });
 });
 
 router.get(
-  "/r/:sub/comments/:postID/:title?/:commentID?",
+  "/r/:sub/comments/:postID/:title/:commentID",
   async (req, res, next) => {
     res.render("site/index", {
-      title: "shareddit: generating image",
-      status: "generating...",
+      title: "shareddit: share reddit posts with images",
+      info: fs.readFileSync(__dirname + "/../views/site/info.hbs"),
+    });
+  }
+);
+
+router.get(
+  "/r/:sub/comments/:postID/:title/:commentID/redact",
+  async (req, res, next) => {
+    res.render("site/index", {
+      title: "shareddit: share reddit posts with images",
+      info: fs.readFileSync(__dirname + "/../views/site/info.hbs"),
     });
   }
 );
