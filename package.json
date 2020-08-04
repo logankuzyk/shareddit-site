@@ -1,6 +1,6 @@
 {
-  "name": "shareddit-backend",
-  "version": "0.0.0",
+  "name": "shareddit-site",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"

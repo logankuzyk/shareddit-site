@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
   <link
     rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -22,6 +27,24 @@
     crossorigin="anonymous"
   ></script>
   <script src="/socket.io/socket.io.js"></script>
+  <script
+    data-ad-client="ca-pub-8687998927085718"
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+  ></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-51247116-3"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "UA-51247116-3");
+  </script>
   <link rel="icon" type="image/png" href="/favicon.ico" />
 </head>
 <style>
@@ -33,8 +56,12 @@
   generate = () => {
     let link = document.getElementById("input").value;
     link = new URL(link).pathname;
-    console.log(link);
+    let redact = document.getElementById("redact").checked;
+    if (redact) {
+      link += "redact/";
+    }
     window.location.replace(link);
+    console.log(link);
     return false;
   };
 
@@ -62,17 +89,37 @@
   });
 </script>
 <html>
-  <nav class="navbar navbar-light bg-light">
-    <div class="container">
-      <span
-        class="navbar-brand mb-0 h1"
-        onclick="location.href=window.location.origin"
-        >📷 shareddit</span
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-sm">
+      <a class="navbar-brand h1 mb-0" href="/">📷 shareddit</a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
       >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav">
+          <!-- navbar menu goes here -->
+        </div>
+        <div class="navbar-nav ml-auto">
+          <script
+            type="text/javascript"
+            src="https://ko-fi.com/widgets/widget_2.js"
+          ></script>
+          <script type="text/javascript">
+            kofiwidget2.init("Support Me on Ko-fi", "#007bff", "N4N31JDNX");
+            kofiwidget2.draw();
+          </script>
+        </div>
+      </div>
     </div>
   </nav>
-  <div class="container">
-    {{{ info }}}
+
+  <div class="container-sm">
+    <div class="row mx-auto">{{{ info }}}</div>
     <div class="form-group">
       <form onsubmit="return generate()">
         <input
@@ -84,15 +131,20 @@
           title="only reddit links work"
           required
         />
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="redact" />
+          <label class="form-check-label" for="redact"
+            ><b>Redact usernames</b> (replace usernames with color blocks to
+            understand conversation, some subreddits require this, check their
+            rules)</label
+          >
+        </div>
         <button type="submit" class="btn btn-primary btn-block my-4">
-          generate
+          Generate image
         </button>
       </form>
-      {{{ body }}}
+      <div class="row mx-auto">{{{ body }}}</div>
       <div id="image"></div>
     </div>
-    {{!--
-    <div class="card-footer">about</div>
-    --}}
   </div>
 </html>

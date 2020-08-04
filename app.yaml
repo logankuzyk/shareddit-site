@@ -1,4 +1,4 @@
-service: site
+service: default
 runtime: nodejs10
 instance_class: F1
 
