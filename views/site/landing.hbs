@@ -1,16 +1,123 @@
-<div class="container">
-  <h5 class="text-center">Do your friends use reddit?</h5>
-  <p>
+<div class="row pt-3">
+  <h4>Do your friends use reddit?</h4>
+  <p class="text-muted">
     Mine don't. shareddit is designed to help you share reddit posts and
-    comments, when the people you want to share with don't know how to use
-    reddit.
+    comments, when the people you want to share with don't know how (or don't
+    want) to use reddit.
   </p>
-  <h5 class="text-center">Images are easy to share</h5>
-  <p>
-    But sometimes it's hard to get everything into a screenshot. shareddit does
+</div>
+<div class="row mt-3">
+  <h4>Images are easy to share</h4>
+  <p class="text-muted">
+    But sometimes, it's hard to get everything into a screenshot. shareddit does
     the tedious work for you, by turning the reddit post (and possibly its
     comments) into a perfectly rendered and artifact-free PNG image.
   </p>
-  <h5 class="text-center">How do I use it?</h5>
-  <p></p>
+</div>
+<div class="row mt-3">
+  <div class="text-left">
+    <h4>How do I use it?</h4>
+    <p class="text-muted">
+      For convenience, there are currently three ways to use shareddit. To
+      capture a post and none of its comments, use the post's permalink. To
+      capture a comment and its parents, use the permalink of the last comment
+      to be included in the image.
+    </p>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="text-left">
+    <h5>Enter the permalink on shareddit.com</h5>
+    <p>
+      Permalinks are the "true" link of a post or comment. They follow the form
+      of
+      <samp
+        >https://www.reddit.com/r/SUBREDDIT/comments/POST_ID/TITLE/COMMENT_ID</samp
+      >, the capitalized parts are different for each permalink.
+    </p>
+    <ol class="text-muted">
+      <li>Get the permalink of the post or comment.</li>
+      <ul>
+        <li>
+          New reddit:
+          <p>
+            Right click on the time of the post or comment. Click on
+            <samp>Copy link address</samp>. This applies for both posts and
+            comments.
+            <img
+              class="img-fluid"
+              src="/public/images/gettingPermalinkNewReddit.png"
+            /><br />
+          </p>
+        </li>
+        <li>
+          Old reddit:
+          <p>
+            For posts on old reddit, the permalink is the same as the link to
+            the full comment thread. As stated, this link would generate an
+            image with no comments.
+          </p>
+          <p>
+            Right click on <samp>permalink</samp> at the bottom of the post or
+            comment. Click on <samp>Copy link address</samp>.
+            <img
+              class="img-fluid"
+              src="/public/images/gettingPermalinkOldReddit.png"
+            />
+          </p>
+        </li>
+      </ul>
+      <li>
+        Now, navigate over to shareddit.com, and paste in the link.
+        <img class="img-fluid" src="/public/images/enteringPermalink.png" />
+      </li>
+      <li>
+        That's it! Here is the generated image.
+        <img class="img-fluid" src="/public/images/formula1Sample.png" />
+      </li>
+    </ol>
+  </div>
+</div>
+<div class="row mt-3">
+  <h5>Using /u/shareddit-bot</h5>
+  <p class="text-muted">
+    Using shareddit-bot is perfect for when there might be multiple redditors
+    who would like to share the image. Mobile users may also find it easier to
+    use. When using shareddit-bot (or any reddit bot), avoid using spamming
+    subreddits or comment sections with summons. However, if you like shareddit,
+    it also helps spread the word and gain users. :)
+  </p>
+  <ol>
+    <li>Navigate to the desired post or comment.</li>
+    <li>
+      Reply <samp>/u/shareddit-bot</samp> to the post, or the last comment to be
+      included in the image. After a few moments, the bot will reply with a link
+      to the image page.
+      <img class="img-fluid" src="/public/images/shareddit-botComment.png" />
+    </li>
+  </ol>
+</div>
+<div class="row mt-3">
+  <h5>Adding "sha" to the beginning of the reddit permalink</h5>
+  <p class="text-muted">
+    shareddit's image generation uses the same link structure as reddit. Add
+    "sha" to the reddit.com URL, turning it into shareddit.com. The image will
+    start generating and be displayed shortly.
+  </p>
+</div>
+<div class="row mt-3">
+  <div class="text-left">
+    <h4>Limitations</h4>
+    <p class="text-muted">
+      shareddit is very new. You may encounter bugs or issues. If you do, please
+      send me a PM at
+      <a href="https://www.reddit.com/message/compose/?to=C1RRU5">/u/C1RRU5</a>.
+    </p>
+    <p class="text-muted">
+      Currently, image and self posts work best. Using posts that link to
+      articles or videos will generate an image with only the post title, no
+      website or video thumbnail. Both videos and external thumbnails will be
+      supported very soon.
+    </p>
+  </div>
 </div>
